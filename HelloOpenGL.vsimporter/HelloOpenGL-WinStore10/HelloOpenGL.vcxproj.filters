@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{dce338d7-1c26-475a-bf3e-4662269fa5c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{cf1fc34d-466c-46c6-b2cb-02969ce83c0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HelloOpenGL">
+      <UniqueIdentifier>{B60DF1F8-8ADD-4F2D-98ED-345E9A6B3E58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HelloOpenGL\Base">
+      <UniqueIdentifier>{572368C5-BCA3-418F-ADE7-440AADBD63D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xcode Variable Files">
+      <UniqueIdentifier>{705DFD93-33E1-4C48-BC07-F93F5D6052FB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLib">
+      <UniqueIdentifier>{f7536dfe-e3a8-460a-ae6b-9cd7e82ed904}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{3324829f-6112-4a0f-9a1f-557e1f428b77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\images">
+      <UniqueIdentifier>{28314565-039e-4ba0-802c-a7ac0ba33bfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\shaders">
+      <UniqueIdentifier>{99731b07-ea54-40bd-8efe-acb26fc053cd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="default.rd.xml" />
+    <AppxManifest Include="Package.appxmanifest" />
+    <None Include="HelloOpenGL_TemporaryKey.pfx" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <AssetCatalogCompile Include="..\..\HelloOpenGL\Assets.xcassets">
+      <Filter>HelloOpenGL</Filter>
+    </AssetCatalogCompile>
+    <ClangCompile Include="..\..\HelloOpenGL\HelloOpenGL.m">
+      <Filter>HelloOpenGL</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HelloOpenGL\main.m">
+      <Filter>HelloOpenGL</Filter>
+    </ClangCompile>
+    <SBInfoPlistCopy Include="..\..\HelloOpenGL\Info.plist" />
+    <Text Include="HelloOpenGL-Debug-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="HelloOpenGL-Release-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="..\..\HelloOpenGL\GameViewController.h">
+      <Filter>HelloOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="tglm\tglm.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>GameLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>GameLib</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>GameLib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClangCompile Include="..\..\HelloOpenGL\GameViewController.m">
+      <Filter>HelloOpenGL</Filter>
+    </ClangCompile>
+    <ClangCompile Include="stb.c">
+      <Filter>Common</Filter>
+    </ClangCompile>
+    <ClangCompile Include="Texture2D.m">
+      <Filter>GameLib</Filter>
+    </ClangCompile>
+    <ClangCompile Include="Shader.m">
+      <Filter>GameLib</Filter>
+    </ClangCompile>
+    <ClangCompile Include="SpriteRenderer.m">
+      <Filter>GameLib</Filter>
+    </ClangCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\HelloOpenGL\images\background.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\bang.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\btn.9.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\btnPressed.9.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\bullet.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\enemy1.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\enemy2.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\enemy3.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\explosion.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\particle.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\spaceshipspr.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\star.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\..\HelloOpenGL\images\tom-thumb-white.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\HelloOpenGL\shaders\sprite.frag">
+      <Filter>Resources\shaders</Filter>
+    </Text>
+    <Text Include="..\..\HelloOpenGL\shaders\sprite.vert">
+      <Filter>Resources\shaders</Filter>
+    </Text>
+    <Text Include="demo.vert">
+      <Filter>Resources\shaders</Filter>
+    </Text>
+    <Text Include="demo.frag">
+      <Filter>Resources\shaders</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

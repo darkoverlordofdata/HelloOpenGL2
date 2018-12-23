@@ -1,11 +1,8 @@
 #pragma once
-
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "stb/stb_image.h"
-
-
 /**
  * Texture2D is able to store and configure a texture in OpenGL.
  * It also hosts utility functions for easy management.
@@ -27,8 +24,8 @@
 @property GLuint FilterMag;			// Filtering mode if texture pixels > screen pixels
 
 
--(Texture2D*)initWithPath:(NSString*)path : (GLuint)format;
--(Texture2D*)initWithPath:(NSString*)path : (GLuint)imageFormat : (GLuint)internalFormat;
+-(Texture2D*)initWithPath:(NSString*)path format: (GLuint)format;
+-(Texture2D*)initWithPath:(NSString*)path imageFormat : (GLuint)imageFormat internalFormat : (GLuint)internalFormat;
 // Generates texture from image data
 -(void)Generate: (GLuint)width : (GLuint)height : (char *) data;
 // Binds the texture as the current active GL_TEXTURE_2D texture object

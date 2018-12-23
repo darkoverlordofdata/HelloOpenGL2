@@ -176,14 +176,18 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <ClangCompile Include="ResourceManager.m" />
     <ClangCompile Include="Shader.m" />
     <ClangCompile Include="SpriteRenderer.m" />
     <ClangCompile Include="stb.c" />
     <ClangCompile Include="Texture2D.m" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="tglm\tglm.h" />
+    <None Include="test.frag" />
+    <None Include="test.vert" />
     <Xml Include="default.rd.xml" />
     <Text Include="..\..\HelloOpenGL\shaders\sprite.frag">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
@@ -193,6 +197,22 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <FileType>Document</FileType>
     </Text>
+    <Text Include="..\..\HelloOpenGL\shaders\demo2d.frag">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Text>
+    <Text Include="..\..\HelloOpenGL\shaders\demo2d.vert">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Text>
+    <None Include="..\..\HelloOpenGL\shaders\demo3d.frag" />
+    <None Include="..\..\HelloOpenGL\shaders\demo3d.vert" />
+    <None Include="..\..\HelloOpenGL\shaders\Shader.frag" />
+    <None Include="..\..\HelloOpenGL\shaders\Shader.vert" />
+    <None Include="..\..\HelloOpenGL\shaders\Shader2.frag" />
+    <None Include="..\..\HelloOpenGL\shaders\Shader2.vert" />
+    <None Include="..\..\HelloOpenGL\shaders\Shader3.frag" />
+    <None Include="..\..\HelloOpenGL\shaders\Shader3.vert" />
     <None Include="HelloOpenGL_TemporaryKey.pfx" />
     <Image Include="..\..\HelloOpenGL\images\background.png" />
     <Image Include="..\..\HelloOpenGL\images\bang.png" />
@@ -240,32 +260,6 @@
     </Text>
     <Text Include="HelloOpenGL-Release-xcvars.txt">
       <DeploymentContent>false</DeploymentContent>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="demo.frag">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">4.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">4.0</ShaderModel>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <FileType>Document</FileType>
-    </Text>
-    <Text Include="demo.vert">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">4.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Compute</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">4.0</ShaderModel>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <FileType>Document</FileType>
     </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

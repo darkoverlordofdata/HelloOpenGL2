@@ -28,6 +28,9 @@
     <Filter Include="Resources\shaders">
       <UniqueIdentifier>{99731b07-ea54-40bd-8efe-acb26fc053cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameLib\Headers">
+      <UniqueIdentifier>{46dd3b6f-2460-4724-b61c-8ae941667fa1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="default.rd.xml" />
@@ -88,13 +91,16 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Texture2D.h">
-      <Filter>GameLib</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>GameLib</Filter>
+      <Filter>GameLib\Headers</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
-      <Filter>GameLib</Filter>
+      <Filter>GameLib\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>GameLib\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>GameLib\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +117,9 @@
       <Filter>GameLib</Filter>
     </ClangCompile>
     <ClangCompile Include="SpriteRenderer.m">
+      <Filter>GameLib</Filter>
+    </ClangCompile>
+    <ClangCompile Include="ResourceManager.m">
       <Filter>GameLib</Filter>
     </ClangCompile>
   </ItemGroup>
@@ -162,11 +171,43 @@
     <Text Include="..\..\HelloOpenGL\shaders\sprite.vert">
       <Filter>Resources\shaders</Filter>
     </Text>
-    <Text Include="demo.vert">
+    <Text Include="..\..\HelloOpenGL\shaders\demo2d.frag">
       <Filter>Resources\shaders</Filter>
     </Text>
-    <Text Include="demo.frag">
+    <Text Include="..\..\HelloOpenGL\shaders\demo2d.vert">
       <Filter>Resources\shaders</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\HelloOpenGL\shaders\demo3d.frag">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="..\..\HelloOpenGL\shaders\demo3d.vert">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="..\..\HelloOpenGL\shaders\Shader.frag">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="..\..\HelloOpenGL\shaders\Shader.vert">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="..\..\HelloOpenGL\shaders\Shader2.frag">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="..\..\HelloOpenGL\shaders\Shader2.vert">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="..\..\HelloOpenGL\shaders\Shader3.frag">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="..\..\HelloOpenGL\shaders\Shader3.vert">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="test.vert">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="test.frag">
+      <Filter>Resources\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

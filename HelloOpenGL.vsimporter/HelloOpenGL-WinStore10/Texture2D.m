@@ -10,9 +10,8 @@
  * @param Format for binding the image
  *
  */
--(Texture2D*)initWithPath:(NSString*)path : (GLuint)format {
-	[self initWithPath:path imageFormat : format internalFormat : format];
-	return self;
+-(Texture2D*)initWithPath:(NSString*)path format: (GLuint)format {
+	return [self initWithPath:path imageFormat : format internalFormat : format];
 }
 
 /**
@@ -23,7 +22,7 @@
  * @param ImageFormat for binding the image
  *
  */
--(Texture2D*)initWithPath:(NSString*)path : (GLuint)imageFormat : (GLuint)internalFormat {
+-(Texture2D*)initWithPath:(NSString*)path imageFormat : (GLuint)imageFormat internalFormat : (GLuint)internalFormat {
 	self.Path = path;
 	self.Width = 0;
 	self.Height = 0;

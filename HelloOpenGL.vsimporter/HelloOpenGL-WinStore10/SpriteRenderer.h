@@ -18,6 +18,6 @@
 
 -(id)initWithShader: (Shader*)shader;
 -(void)InitRenderData;
--(void)Draw: (Texture2D*) texture :  (Vec2)position : (Vec2)size : (GLfloat)rotate: (Vec3)color;
+-(void)Draw: (Texture2D*) texture : (Vec2)position : (Vec2)size : (GLfloat)rotate: (Vec3)color;
 
 @end

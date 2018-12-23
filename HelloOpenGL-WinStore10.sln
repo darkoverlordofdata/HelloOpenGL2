@@ -10,6 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildSupport", "BuildSuppor
 EndProject
 Project("{13B669BE-BB05-4DDF-9536-439F39A36129}") = "NugetRestore", "..\..\common\NugetRestore.msbuildproj", "{B2C6186E-B340-49D8-888E-76ED83752E43}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F654D924-D933-4FB0-994B-834840A24AC3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		readme.md = readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +60,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7F101DAF-1B12-40C2-B59E-E5E75ABAB35C} = {87D009FB-8229-44BF-976F-FF8C397D66EE}
 		{B2C6186E-B340-49D8-888E-76ED83752E43} = {87B5EAD6-31ED-4E30-B258-5B01FF98CC13}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A6287AF-C381-472A-A6FC-07133FC1DA70}
 	EndGlobalSection
 EndGlobal

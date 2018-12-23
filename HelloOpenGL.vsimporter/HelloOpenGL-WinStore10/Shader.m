@@ -40,60 +40,27 @@
 /**
  * Compile
  * load shaders from file and compile
- * If only 1 name is given, then both vertex and frragments have the same filename
- *
- * @parm source name of shader
- * @returns this shader object
- */
--(Shader*)Compile : (NSString *)vertSource {
-	[self Compile:vertSource withFragment : vertSource];
-	return self;
-}
-
-/**
- * Compile
- * load shaders from file and compile
  *
  * @parm source name of vertex shader
  * @parm source name of fragment shader
  * @returns this shader object
  */
--(Shader*)Compile : (NSString *)vertSource withFragment :  (NSString *)fragSource
-{
+-(Shader*)Compile : (NSString *)vertSource withFragment :  (NSString *)fragSource {
 
-	NSString* vertPath = [[NSBundle mainBundle] pathForResource:vertSource
-		ofType : @"vert"];
-	NSString* fragPath = [[NSBundle mainBundle] pathForResource:fragSource
-		ofType : @"frag"];
+	int vertLen = [vertSource length];
+	int fragLen = [fragSource length];
 
-	NSString* vertCode = [NSString stringWithContentsOfFile : vertPath
-		encoding : NSUTF8StringEncoding
-		error : NULL];
-	NSString* fragCode = [NSString stringWithContentsOfFile : fragPath
-		encoding : NSUTF8StringEncoding
-		error : NULL];
-	
-	char* vertShaderPtr = [vertCode UTF8String];
-	char* fragShaderPtr = [fragCode UTF8String];
+	char* vertPtr = [vertSource UTF8String];
+	char* fragPtr = [fragSource UTF8String];
 
-	/**
-	 * this doesn't work with string ptr, so create an array and copy.
-	 * these are just little text files.
-	 */
-	char vertShader[strlen(vertShaderPtr)];
-	char fragShader[strlen(fragShaderPtr)];
-
-	memcpy(&vertShader, vertShaderPtr, strlen(vertShaderPtr));
-	memcpy(&fragShader, fragShaderPtr, strlen(fragShaderPtr));
-	
 	GLuint vertShaderHandle = glCreateShader(GL_VERTEX_SHADER);
 	GLuint fragShaderHandle = glCreateShader(GL_FRAGMENT_SHADER);
 
-	const GLchar* vertShaderSrc[] = { vertShader };
-	const GLint vertShaderLen[] = { sizeof(vertShader) };
+	const GLchar* vertShaderSrc[] = { vertPtr };
+	const GLint vertShaderLen[] = { vertLen+1 };
 
-	const GLchar* fragShaderSrc[] = { fragShader };
-	const GLint fragShaderLen[] = { sizeof(fragShader) };
+	const GLchar* fragShaderSrc[] = { fragPtr };
+	const GLint fragShaderLen[] = { fragLen+1 };
 
 	glShaderSource(vertShaderHandle, 1, vertShaderSrc, vertShaderLen);
 	glCompileShader(vertShaderHandle);

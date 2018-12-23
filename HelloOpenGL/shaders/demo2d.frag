@@ -1,3 +1,5 @@
+# version 100
+
 varying lowp vec4 _outcolor;
 void main()
 {	

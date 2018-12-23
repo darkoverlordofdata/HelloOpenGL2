@@ -18,8 +18,9 @@
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
-#import "stb/stb_image.h"
 #import "tglm/tglm.h"
+#import "ResourceManager.h"
+#import "SpriteRenderer.h"
 #import "Shader.h"
 
 @interface OpenGLView : UIView
@@ -32,10 +33,10 @@
 @property (nonatomic) OpenGLView* OutputView;
 @property (nonatomic) CADisplayLink* DisplayLink;
 @property (nonatomic) Shader* Shader;
-
+@property (nonatomic) SpriteRenderer* Renderer;
+@property (nonatomic) Texture2D* Texture;
 @property GLint Width;
 @property GLint Height;
-@property float CubeAngle;
 @property CGSize CurSize;
 @property GLuint Framebuffer;
 @property GLuint Renderbuffer;
@@ -43,10 +44,10 @@
 @property GLuint PositionAttrib;
 @property GLuint ColorAttrib;
 @property GLuint ProjectionAttrib;
-@property GLuint RotateAttrib;
+//@property GLuint RotateAttrib;
 @property GLuint TranslateAttrib;
 @property GLfloat Aspect;
-@property GLuint PositionBuffer;
+@property GLuint VBO;
 @property GLuint ColorBuffer;
 
 @end

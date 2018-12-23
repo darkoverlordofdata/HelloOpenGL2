@@ -14,11 +14,10 @@
 
 @property GLuint Id;
 
--(Shader*)Use;
--(Shader*)Compile : (NSString *)vertexSource;
--(Shader*)Compile : (NSString *)vertexSource withFragment : (NSString *)fragmentSource;
 -(GLint)GetAttrib: (NSString*)name;
 -(GLint)GetUniform : (NSString*)name;
+-(Shader*)Use;
+-(Shader*)Compile : (NSString *)vertexSource withFragment : (NSString *)fragmentSource;
 -(Shader*)Set:(NSString *)name float: (GLfloat)value;
 -(Shader*)Set:(NSString *)name int: (GLint)value;
 -(Shader*)Set:(NSString *)name x: (GLfloat)x y: (GLfloat)y;

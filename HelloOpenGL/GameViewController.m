@@ -26,16 +26,17 @@ typedef struct {
     float color[4];
 } Vertex;
 
-static Vertex cubeVertices[] = { 
-	{ { -1.0f, -1.0f, -1.0f },	{ 0.0f, 1.0f, 0.0f, 1.0f } },
-    { { 1.0f, -1.0f, -1.0f },	{ 0.0f, 1.0f, 0.0f, 1.0f } },
-    { { 1.0f, 1.0f, -1.0f },	{ 1.0f, 0.5f, 0.0f, 1.0f } },
-    { { -1.0f, 1.0f, -1.0f },	{ 1.0f, 0.5f, 0.0f, 1.0f } },
-    { { -1.0f, -1.0f, 1.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
-    { { 1.0f, -1.0f, 1.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
-    { { 1.0f, 1.0f, 1.0f },		{ 0.0f, 0.0f, 1.0f, 1.0f } },
-    { { -1.0f, 1.0f, 1.0f },	{ 1.0f, 0.0f, 1.0f, 1.0f } } 
+static Vertex Vertices[] = {
+	{ {  0.5f,  0.5f, 0.0f },	{ 1.0f, 0.5f, 0.0f, 1.0f } },
+	{ {  0.5f, -0.5f, 0.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
+	{ { -0.5f, -0.5f, 0.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
+	{ { -0.5f,  0.5f, 0.0f },	{ 1.0f, 0.0f, 1.0f, 1.0f } }
 };
+
+static uint8_t drawIndices[] = {
+	3, 0, 1, 3, 1, 2
+};
+
 
 @implementation OpenGLView
 + (Class)layerClass {
@@ -52,7 +53,9 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 
 @implementation GameViewController;
 
+	// should delegate to Game::Resized
 - (void)viewWillLayoutSubviews {
+	NSLog(@"viewWillLayoutSubviews");
     [EAGLContext setCurrentContext:self.Ctx];
     if (!CGSizeEqualToSize(self.CurSize, self.OutputView.bounds.size)) {
         self.CurSize = self.OutputView.bounds.size;
@@ -98,9 +101,9 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
 
-        glGenBuffers(1, &_PositionBuffer);
-        glBindBuffer(GL_ARRAY_BUFFER, self.PositionBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), cubeVertices, GL_STATIC_DRAW);
+        glGenBuffers(1, &_VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, self.VBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 
         glViewport(0, 0, self.Width, self.Height);
         self.Aspect = (GLfloat)self.Width / (GLfloat)self.Height;
@@ -108,36 +111,36 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
     }
 }
 
+// should delegate to Game::Start
 - (void)viewDidLoad {
-
-	//NSString *path = [[NSBundle mainBundle] pathForResource:@"background" ofType:@"png"];
-	//int width, height, nrChannels;
-	//unsigned char *data = stbi_load([path UTF8String], &width, &height, &nrChannels, 0);
-	//free(data);
-
 	/**
 	 * Get the gl context
 	 */
     self.Ctx = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    [EAGLContext setCurrentContext:self.Ctx];
+	[EAGLContext setCurrentContext : self.Ctx];
 
-	/**
-	 * Load the shader
-	 */
-	self.Shader = [[Shader alloc]init];
-	[self.Shader Compile : @"demo"];
+	NSLog(@"OpenGL version : %s", glGetString(GL_VERSION));
+	NSLog(@"GLSL version   : %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
+	NSLog(@"Vendor         : %s", glGetString(GL_VENDOR));
+	NSLog(@"Renderer       : %s", glGetString(GL_RENDERER));
+
+	self.Shader = [ResourceManager LoadShader : @"demo2d"];
 
 	self.PositionAttrib		= [self.Shader GetAttrib : @"_position"];
 	self.ColorAttrib		= [self.Shader GetAttrib : @"_color"];
 	self.ProjectionAttrib	= [self.Shader GetUniform : @"_projection"];
-	self.RotateAttrib		= [self.Shader GetUniform : @"_rotate"];
 	self.TranslateAttrib	= [self.Shader GetUniform : @"_translate"];
+
+	//self.Texture = [ResourceManager LoadTexture : @"background.png" alpha: false nameAs: @"block"];
+	//Shader* s = [ResourceManager LoadShader : @"sprite"];
+	//self.Renderer = [[SpriteRenderer alloc] initWithShader:s];
+
 
     CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     self.OutputView = [[OpenGLView alloc] initWithFrame:frame];
     self.OutputView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    self.DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
+	self.DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
 	self.view.backgroundColor = [UIColor blackColor];
 	[self.view addSubview:self.OutputView];
 
@@ -151,6 +154,7 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
     [self.DisplayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
+// should delegate to Game::Update - Game::Render
 - (void)render {
     [EAGLContext setCurrentContext:self.Ctx];
 
@@ -158,32 +162,19 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	[self.Shader Use];
-    glEnableVertexAttribArray(self.PositionAttrib);
-    glEnableVertexAttribArray(self.ColorAttrib);
+	glEnableVertexAttribArray(self.PositionAttrib);
+	glEnableVertexAttribArray(self.ColorAttrib);
 
-    glVertexAttribPointer(self.PositionAttrib, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    glVertexAttribPointer(self.ColorAttrib, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(sizeof(float) * 3));
+	glVertexAttribPointer(self.PositionAttrib, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+	glVertexAttribPointer(self.ColorAttrib, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(sizeof(float) * 3));
 
-    CATransform3D rotate = CATransform3DMakeRotation(self.CubeAngle, 1.0f, 0.0f, 0.0f);
-    rotate = CATransform3DRotate(rotate, self.CubeAngle, 0.0f, 1.0f, 0.0f);
-	glUniformMatrix4fv(self.RotateAttrib, 1, 0, (const GLfloat*)&rotate);
-
-    CATransform3D translate = CATransform3DMakeTranslation(0.0f, 0.0f, -5.0f);
+	Mat translate = glm_translate(mat_identity(), (Vec3) { 0.0f, 0.0f, 0.0f });
 	glUniformMatrix4fv(self.TranslateAttrib, 1, 0, (const GLfloat*)&translate);
 
+	//glActiveTexture(GL_TEXTURE0);
+	//[self.Texture Bind];
 
-    self.CubeAngle += 1.0f / 180.0f * M_PI;
-
-    static uint8_t drawIndices[] = { 
-		0, 4, 5, 0, 5, 1, 
-		1, 5, 6, 1, 6, 2, 
-		2, 6, 7, 2, 7, 3,
-        3, 7, 4, 3, 4, 0, 
-		4, 7, 6, 4, 6, 5, 
-		3, 0, 1, 3, 1, 2 
-	};
-
-    glDrawElements(GL_TRIANGLES, sizeof(drawIndices) / sizeof(uint8_t), GL_UNSIGNED_BYTE, drawIndices);
+	glDrawElements(GL_TRIANGLES, sizeof(drawIndices) / sizeof(uint8_t), GL_UNSIGNED_BYTE, drawIndices);
 
     [self.Ctx presentRenderbuffer:GL_RENDERBUFFER];
 }

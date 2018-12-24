@@ -1,0 +1,94 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "debug",
+            "type": "shell",
+            "command": "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv",
+            "args": [
+                "${workspaceFolder}/HelloOpenGL-WinStore10.sln",
+                "/runexit"
+            ],
+            "group": "test",
+            "problemMatcher": [
+                "$msCompile"
+            ]
+            
+        },
+        {
+            "label": "deploy",
+            "type": "shell",
+            "command": "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv",
+            "args": [
+                "/deploy",
+                "debug",
+                "${workspaceFolder}/HelloOpenGL-WinStore10.sln"
+            ],
+            "group": "build",
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv",
+            "args": [
+                "${workspaceFolder}/HelloOpenGL-WinStore10.sln",
+                "/clean"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe",
+            "args": [
+                "/property:GenerateFullPaths=true",
+                "/p:Configuration=Debug",
+                "/p:Platform=Win32",
+                "/p:NuGetRestorePackages=false",
+                "/t:publish"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": [
+                {
+                    "owner": "objective-c",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}"
+                    ],
+                    "pattern": {
+                        "regexp": "^(.*):(/d+):(/d+):/s+(warning|error):/s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                },
+                {
+                    "owner": "general",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}"
+                    ],
+                    "pattern": {
+                        "regexp": "Build FAILED",
+                        "file": 1,
+                        "severity": 1,
+                        "message": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -23,6 +23,11 @@
 #import "SpriteRenderer.h"
 #import "Shader.h"
 
+typedef struct {
+	float position[3];
+	float color[4];
+} Vertex;
+
 @interface OpenGLView : UIView
 + (Class)layerClass;
 @end
@@ -41,13 +46,6 @@
 @property GLuint Framebuffer;
 @property GLuint Renderbuffer;
 @property GLuint Depthbuffer;
-@property GLuint PositionAttrib;
-@property GLuint ColorAttrib;
-@property GLuint ProjectionAttrib;
-//@property GLuint RotateAttrib;
-@property GLuint TranslateAttrib;
-@property GLfloat Aspect;
-@property GLuint VBO;
 @property GLuint ColorBuffer;
 
 @end

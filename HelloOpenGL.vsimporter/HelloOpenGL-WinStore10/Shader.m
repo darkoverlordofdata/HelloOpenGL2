@@ -1,4 +1,4 @@
-#import "Shader.h"
+	#import "Shader.h"
 
 /**
  *	Shader class
@@ -50,8 +50,8 @@
 	int vertLen = [vertSource length];
 	int fragLen = [fragSource length];
 
-	char* vertPtr = [vertSource UTF8String];
-	char* fragPtr = [fragSource UTF8String];
+	const char* vertPtr = [vertSource UTF8String];
+	const char* fragPtr = [fragSource UTF8String];
 
 	GLuint vertShaderHandle = glCreateShader(GL_VERTEX_SHADER);
 	GLuint fragShaderHandle = glCreateShader(GL_FRAGMENT_SHADER);
@@ -64,9 +64,11 @@
 
 	glShaderSource(vertShaderHandle, 1, vertShaderSrc, vertShaderLen);
 	glCompileShader(vertShaderHandle);
+	[self checkCompileStatus:vertShaderHandle withType : @"Vertex"];
 
 	glShaderSource(fragShaderHandle, 1, fragShaderSrc, fragShaderLen);
 	glCompileShader(fragShaderHandle);
+	[self checkCompileStatus:fragShaderHandle withType : @"Fragment"];
 
 	self.Id = glCreateProgram();
 	glAttachShader(self.Id, vertShaderHandle);
@@ -75,6 +77,25 @@
 	glUseProgram(self.Id);
 
 	return self;
+}
+
+-(void)checkCompileStatus:(GLuint) handle withType: (NSString*) name {
+	GLint status;
+	glGetShaderiv(handle, GL_COMPILE_STATUS, &status);
+	if (status == GL_FALSE) {
+
+		GLint infoLogLength;
+		glGetShaderiv(handle, GL_INFO_LOG_LENGTH, &infoLogLength);
+		char* strInfoLog = (char*)calloc(1, infoLogLength + 1);
+		glGetShaderInfoLog(handle, infoLogLength, NULL, strInfoLog);
+		NSString* msg = @(strInfoLog);
+		NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+		NSLog(@"Compile failure in  in %@ shader:", name);
+		NSLog(@"%@", msg);
+		NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+		free(strInfoLog);
+		glDeleteShader(handle);
+	}
 }
 
 /**

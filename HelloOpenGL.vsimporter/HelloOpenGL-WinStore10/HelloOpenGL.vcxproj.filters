@@ -177,6 +177,12 @@
     <Text Include="..\..\HelloOpenGL\shaders\demo2d.vert">
       <Filter>Resources\shaders</Filter>
     </Text>
+    <Text Include="test.frag">
+      <Filter>Resources\shaders</Filter>
+    </Text>
+    <Text Include="test.vert">
+      <Filter>Resources\shaders</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\HelloOpenGL\shaders\demo3d.frag">
@@ -201,12 +207,6 @@
       <Filter>Resources\shaders</Filter>
     </None>
     <None Include="..\..\HelloOpenGL\shaders\Shader3.vert">
-      <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="test.vert">
-      <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="test.frag">
       <Filter>Resources\shaders</Filter>
     </None>
   </ItemGroup>

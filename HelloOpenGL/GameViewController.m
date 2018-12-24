@@ -21,20 +21,15 @@
 #import "GameViewController.h"
 
 
-typedef struct {
-    float pps[3];
-    float color[4];
-} Vertex;
-
 static Vertex Vertices[] = {
-	{ {  0.5f,  0.5f, 0.0f },	{ 1.0f, 0.5f, 0.0f, 1.0f } },
-	{ {  0.5f, -0.5f, 0.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
-	{ { -0.5f, -0.5f, 0.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
-	{ { -0.5f,  0.5f, 0.0f },	{ 1.0f, 0.0f, 1.0f, 1.0f } }
+	{ {  1.0f,  1.0f, 0.0f },	{ 1.0f, 1.0f, 0.0f, 1.0f } },
+	{ { -1.0f,  1.0f, 0.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
+	{ {  1.0f, -1.0f, 0.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
+	{ { -1.0f, -1.0f, 0.0f },	{ 1.0f, 0.0f, 1.0f, 1.0f } }
 };
 
 static uint8_t drawIndices[] = {
-	3, 0, 1, 3, 1, 2
+	0, 1, 2, 2, 1, 3
 };
 
 
@@ -55,7 +50,6 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 
 	// should delegate to Game::Resized
 - (void)viewWillLayoutSubviews {
-	NSLog(@"viewWillLayoutSubviews");
     [EAGLContext setCurrentContext:self.Ctx];
     if (!CGSizeEqualToSize(self.CurSize, self.OutputView.bounds.size)) {
         self.CurSize = self.OutputView.bounds.size;
@@ -91,6 +85,8 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &_Width);
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &_Height);
 
+		self.Renderer = [[SpriteRenderer alloc] initWithShader:self.Shader width : self.Width height : self.Height];
+
         glGenRenderbuffers(1, &_Depthbuffer);
         glBindRenderbuffer(GL_RENDERBUFFER, self.Depthbuffer);
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.Width, self.Height);
@@ -101,13 +97,6 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
 
-        glGenBuffers(1, &_VBO);
-        glBindBuffer(GL_ARRAY_BUFFER, self.VBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
-
-        glViewport(0, 0, self.Width, self.Height);
-        self.Aspect = (GLfloat)self.Width / (GLfloat)self.Height;
-        glPerspective(M_PI / 3, self.Aspect, 0.01f, 100.0f, self.ProjectionAttrib);
     }
 }
 
@@ -124,17 +113,9 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	NSLog(@"Vendor         : %s", glGetString(GL_VENDOR));
 	NSLog(@"Renderer       : %s", glGetString(GL_RENDERER));
 
+
 	self.Shader = [ResourceManager LoadShader : @"demo2d"];
-
-	self.PositionAttrib		= [self.Shader GetAttrib : @"_position"];
-	self.ColorAttrib		= [self.Shader GetAttrib : @"_color"];
-	self.ProjectionAttrib	= [self.Shader GetUniform : @"_projection"];
-	self.TranslateAttrib	= [self.Shader GetUniform : @"_translate"];
-
-	//self.Texture = [ResourceManager LoadTexture : @"background.png" alpha: false nameAs: @"block"];
-	//Shader* s = [ResourceManager LoadShader : @"sprite"];
-	//self.Renderer = [[SpriteRenderer alloc] initWithShader:s];
-
+	self.Texture = [ResourceManager LoadTexture : @"background.png" alpha: false nameAs: @"block"];
 
     CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     self.OutputView = [[OpenGLView alloc] initWithFrame:frame];
@@ -159,23 +140,11 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
     [EAGLContext setCurrentContext:self.Ctx];
 
 	glClearColor(0.372549, 0.623529, 0.623529, 1);
+	// glClearColor(1.0f, 0.0f, 0.0f, 1);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	[self.Shader Use];
-	glEnableVertexAttribArray(self.PositionAttrib);
-	glEnableVertexAttribArray(self.ColorAttrib);
-
-	glVertexAttribPointer(self.PositionAttrib, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(self.ColorAttrib, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(sizeof(float) * 3));
-
-	Mat translate = glm_translate(mat_identity(), (Vec3) { 0.0f, 0.0f, 0.0f });
-	glUniformMatrix4fv(self.TranslateAttrib, 1, 0, (const GLfloat*)&translate);
-
-	//glActiveTexture(GL_TEXTURE0);
-	//[self.Texture Bind];
-
-	glDrawElements(GL_TRIANGLES, sizeof(drawIndices) / sizeof(uint8_t), GL_UNSIGNED_BYTE, drawIndices);
-
+	[self.Renderer Draw];
     [self.Ctx presentRenderbuffer:GL_RENDERBUFFER];
 }
 

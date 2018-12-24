@@ -27,5 +27,6 @@
 -(Shader*)Set:(NSString *)name x: (GLfloat)x y: (GLfloat)y z: (GLfloat)z w: (GLfloat)w;
 -(Shader*)Set:(NSString *)name vec4: (GLfloat*)value;
 -(Shader*)Set:(NSString *)name matrix: (GLfloat*)matrix;
+-(void)checkCompileStatus:(GLuint)handle withType : (NSString*)name;
 
 @end

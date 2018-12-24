@@ -32,6 +32,7 @@ static NSMutableDictionary* _Textures = nil;
 +(Shader*)LoadShader : (NSString*)vertex withFragment : (NSString*)fragment nameAs : (NSString*)name {
 	Shader *shader = [ResourceManager loadShaderFromFile : vertex withFragment : fragment];
 	[ResourceManager.Shaders setObject : shader forKey : name];
+	NSLog(@"Added shader %@", name);
 	return shader;
 }
 

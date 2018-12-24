@@ -75,7 +75,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <PackageCertificateKeyFile>HelloOpenGL_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>3EE1CCE17B6705FF49C5E764CE83A9017E9CEF57</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>53E04FFFF79FF62A8D4E5824FDF5C48107EE2AFF</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -186,8 +186,14 @@
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="tglm\tglm.h" />
-    <None Include="test.frag" />
-    <None Include="test.vert" />
+    <Text Include="test.frag">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Text>
+    <Text Include="test.vert">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Text>
     <Xml Include="default.rd.xml" />
     <Text Include="..\..\HelloOpenGL\shaders\sprite.frag">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>

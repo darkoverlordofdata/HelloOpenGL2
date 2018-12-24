@@ -2,30 +2,26 @@
 
 this started as a copy of https://github.com/Microsoft/WinObjC/tree/develop/samples/HelloOpenGL.
 
-I'm editing and building from vscode to avoid false errors from using clang extensions.
+I'm editing and building from vscode to avoid false errors from using clang extensions. It's also much faster to use. Builds are way faster, so is loading the ide.
+
+To debug or reconfigure the project, use VisualStudio.
 
 And, I've removed the NugetRestore node from the solution explorer because 
-msbuild is not compatible with nugetrestore... 
-
+msbuild is not compatible with nugetrestore... I may revert this - I've switched to using devenv for builds.
 
 ### debug 
-    $repopath = "."
-    $devenv = "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv"
-    $sln = (gci -Path $repopath -recurse -include HelloOpenGL-WinStore10.sln).fullname
-    $params = "/runexit"
-    & $devenv $sln $params
+    "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv" "c:/Users/darko/Documents/GitHub/WinObjC/samples/HelloOpenGL2/HelloOpenGL-WinStore10.sln" /runexit
 
 ### build
-    $repopath = "."
-    $msbuild = "/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe"
-    $sln = (gci -Path $repopath -recurse -include HelloOpenGL-WinStore10.sln).fullname
-    $params = "/p:Configuration=Debug /p:Platform=Win32" 
-    & $msbuild $sln $params
+    "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv" "c:/Users/darko/Documents/GitHub/WinObjC/samples/HelloOpenGL2/HelloOpenGL-WinStore10.sln" /build
 
-### deploy
+### clean
     "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv" "c:/Users/darko/Documents/GitHub/WinObjC/samples/HelloOpenGL2/HelloOpenGL-WinStore10.sln" /clean
 
-    "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv" /deploy debug "c:/Users/darko/Documents/GitHub/WinObjC/samples/HelloOpenGL2/HelloOpenGL-WinStore10.sln"
+### deploy
+    "/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv"  "c:/Users/darko/Documents/GitHub/WinObjC/samples/HelloOpenGL2/HelloOpenGL-WinStore10.sln" /deploy
+
+
 
 
 ## isues

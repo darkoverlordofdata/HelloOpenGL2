@@ -16,20 +16,20 @@
     <Filter Include="Xcode Variable Files">
       <UniqueIdentifier>{705DFD93-33E1-4C48-BC07-F93F5D6052FB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameLib">
-      <UniqueIdentifier>{f7536dfe-e3a8-460a-ae6b-9cd7e82ed904}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{3324829f-6112-4a0f-9a1f-557e1f428b77}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\images">
-      <UniqueIdentifier>{28314565-039e-4ba0-802c-a7ac0ba33bfd}</UniqueIdentifier>
+      <UniqueIdentifier>{d2c8736b-1762-463d-a7d4-b127729b2e17}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\shaders">
-      <UniqueIdentifier>{99731b07-ea54-40bd-8efe-acb26fc053cd}</UniqueIdentifier>
+      <UniqueIdentifier>{fac47724-505e-43f0-9c46-b469f3d4de81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLib">
+      <UniqueIdentifier>{cd3f54b6-e2c3-4a63-bcb3-bb47b8536032}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameLib\Headers">
-      <UniqueIdentifier>{46dd3b6f-2460-4724-b61c-8ae941667fa1}</UniqueIdentifier>
+      <UniqueIdentifier>{85938677-5e8c-40ef-893a-240b66f880c2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,130 +84,124 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h" />
-    <ClInclude Include="..\..\HelloOpenGL\GameViewController.h">
-      <Filter>HelloOpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="tglm\tglm.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="Texture2D.h">
+    <ClInclude Include="GameLib\ResourceManager.h">
       <Filter>GameLib\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteRenderer.h">
+    <ClInclude Include="GameLib\Shader.h">
       <Filter>GameLib\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="GameLib\SpriteRenderer.h">
       <Filter>GameLib\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManager.h">
+    <ClInclude Include="GameLib\Texture2D.h">
+      <Filter>GameLib\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\GameViewController.h">
       <Filter>GameLib\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClangCompile Include="..\..\HelloOpenGL\GameViewController.m">
-      <Filter>HelloOpenGL</Filter>
-    </ClangCompile>
-    <ClangCompile Include="stb.c">
-      <Filter>Common</Filter>
-    </ClangCompile>
-    <ClangCompile Include="Texture2D.m">
+    <ClangCompile Include="GameLib\ResourceManager.m">
       <Filter>GameLib</Filter>
     </ClangCompile>
-    <ClangCompile Include="Shader.m">
+    <ClangCompile Include="GameLib\Shader.m">
       <Filter>GameLib</Filter>
     </ClangCompile>
-    <ClangCompile Include="SpriteRenderer.m">
+    <ClangCompile Include="GameLib\SpriteRenderer.m">
       <Filter>GameLib</Filter>
     </ClangCompile>
-    <ClangCompile Include="ResourceManager.m">
+    <ClangCompile Include="GameLib\Texture2D.m">
+      <Filter>GameLib</Filter>
+    </ClangCompile>
+    <ClangCompile Include="GameLib\GameViewController.m">
+      <Filter>GameLib</Filter>
+    </ClangCompile>
+    <ClangCompile Include="GameLib\stb.c">
       <Filter>GameLib</Filter>
     </ClangCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\HelloOpenGL\images\background.png">
+    <Image Include="images\background.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\bang.png">
+    <Image Include="images\bang.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\btn.9.png">
+    <Image Include="images\btn.9.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\btnPressed.9.png">
+    <Image Include="images\btnPressed.9.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\bullet.png">
+    <Image Include="images\bullet.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\enemy1.png">
+    <Image Include="images\enemy1.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\enemy2.png">
+    <Image Include="images\enemy2.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\enemy3.png">
+    <Image Include="images\enemy3.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\explosion.png">
+    <Image Include="images\explosion.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\particle.png">
+    <Image Include="images\particle.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\spaceshipspr.png">
+    <Image Include="images\spaceshipspr.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\star.png">
+    <Image Include="images\star.png">
       <Filter>Resources\images</Filter>
     </Image>
-    <Image Include="..\..\HelloOpenGL\images\tom-thumb-white.png">
+    <Image Include="images\tom-thumb-white.png">
       <Filter>Resources\images</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\HelloOpenGL\shaders\sprite.frag">
+    <None Include="shaders\demo3d.frag">
       <Filter>Resources\shaders</Filter>
-    </Text>
-    <Text Include="..\..\HelloOpenGL\shaders\sprite.vert">
+    </None>
+    <None Include="shaders\demo3d.vert">
       <Filter>Resources\shaders</Filter>
-    </Text>
-    <Text Include="..\..\HelloOpenGL\shaders\demo2d.frag">
+    </None>
+    <None Include="shaders\Shader.frag">
       <Filter>Resources\shaders</Filter>
-    </Text>
-    <Text Include="..\..\HelloOpenGL\shaders\demo2d.vert">
+    </None>
+    <None Include="shaders\Shader.vert">
       <Filter>Resources\shaders</Filter>
-    </Text>
-    <Text Include="test.frag">
+    </None>
+    <None Include="shaders\Shader2.frag">
       <Filter>Resources\shaders</Filter>
-    </Text>
-    <Text Include="test.vert">
+    </None>
+    <None Include="shaders\Shader2.vert">
       <Filter>Resources\shaders</Filter>
-    </Text>
+    </None>
+    <None Include="shaders\Shader3.frag">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="shaders\Shader3.vert">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="shaders\sprite.frag">
+      <Filter>Resources\shaders</Filter>
+    </None>
+    <None Include="shaders\sprite.vert">
+      <Filter>Resources\shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\HelloOpenGL\shaders\demo3d.frag">
+    <Text Include="shaders\demo2d.frag">
       <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="..\..\HelloOpenGL\shaders\demo3d.vert">
+    </Text>
+    <Text Include="shaders\demo2d.vert">
       <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="..\..\HelloOpenGL\shaders\Shader.frag">
-      <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="..\..\HelloOpenGL\shaders\Shader.vert">
-      <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="..\..\HelloOpenGL\shaders\Shader2.frag">
-      <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="..\..\HelloOpenGL\shaders\Shader2.vert">
-      <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="..\..\HelloOpenGL\shaders\Shader3.frag">
-      <Filter>Resources\shaders</Filter>
-    </None>
-    <None Include="..\..\HelloOpenGL\shaders\Shader3.vert">
-      <Filter>Resources\shaders</Filter>
-    </None>
+    </Text>
   </ItemGroup>
 </Project>

@@ -176,63 +176,52 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <ClangCompile Include="ResourceManager.m" />
-    <ClangCompile Include="Shader.m" />
-    <ClangCompile Include="SpriteRenderer.m" />
-    <ClangCompile Include="stb.c" />
-    <ClangCompile Include="Texture2D.m" />
-    <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="SpriteRenderer.h" />
-    <ClInclude Include="Texture2D.h" />
+    <ClangCompile Include="GameLib\GameViewController.m" />
+    <ClangCompile Include="GameLib\ResourceManager.m" />
+    <ClangCompile Include="GameLib\Shader.m" />
+    <ClangCompile Include="GameLib\SpriteRenderer.m" />
+    <ClangCompile Include="GameLib\stb.c" />
+    <ClangCompile Include="GameLib\Texture2D.m" />
+    <ClInclude Include="GameLib\GameViewController.h" />
+    <ClInclude Include="GameLib\ResourceManager.h" />
+    <ClInclude Include="GameLib\Shader.h" />
+    <ClInclude Include="GameLib\SpriteRenderer.h" />
+    <ClInclude Include="GameLib\Texture2D.h" />
     <ClInclude Include="tglm\tglm.h" />
-    <Text Include="test.frag">
+    <Image Include="images\background.png" />
+    <Image Include="images\bang.png" />
+    <Image Include="images\btn.9.png" />
+    <Image Include="images\btnPressed.9.png" />
+    <Image Include="images\bullet.png" />
+    <Image Include="images\enemy1.png" />
+    <Image Include="images\enemy2.png" />
+    <Image Include="images\enemy3.png" />
+    <Image Include="images\explosion.png" />
+    <Image Include="images\particle.png" />
+    <Image Include="images\spaceshipspr.png" />
+    <Image Include="images\star.png" />
+    <Image Include="images\tom-thumb-white.png" />
+    <Text Include="shaders\demo2d.frag">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
     </Text>
-    <Text Include="test.vert">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    <Text Include="shaders\demo2d.vert">
+      <DeploymentContent>true</DeploymentContent>
       <FileType>Document</FileType>
     </Text>
+    <None Include="shaders\demo3d.frag" />
+    <None Include="shaders\demo3d.vert" />
+    <None Include="shaders\Shader.frag" />
+    <None Include="shaders\Shader.vert" />
+    <None Include="shaders\Shader2.frag" />
+    <None Include="shaders\Shader2.vert" />
+    <None Include="shaders\Shader3.frag" />
+    <None Include="shaders\Shader3.vert" />
+    <None Include="shaders\sprite.frag" />
+    <None Include="shaders\sprite.vert" />
     <Xml Include="default.rd.xml" />
-    <Text Include="..\..\HelloOpenGL\shaders\sprite.frag">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <FileType>Document</FileType>
-    </Text>
-    <Text Include="..\..\HelloOpenGL\shaders\sprite.vert">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <FileType>Document</FileType>
-    </Text>
-    <Text Include="..\..\HelloOpenGL\shaders\demo2d.frag">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <FileType>Document</FileType>
-    </Text>
-    <Text Include="..\..\HelloOpenGL\shaders\demo2d.vert">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <FileType>Document</FileType>
-    </Text>
-    <None Include="..\..\HelloOpenGL\shaders\demo3d.frag" />
-    <None Include="..\..\HelloOpenGL\shaders\demo3d.vert" />
-    <None Include="..\..\HelloOpenGL\shaders\Shader.frag" />
-    <None Include="..\..\HelloOpenGL\shaders\Shader.vert" />
-    <None Include="..\..\HelloOpenGL\shaders\Shader2.frag" />
-    <None Include="..\..\HelloOpenGL\shaders\Shader2.vert" />
-    <None Include="..\..\HelloOpenGL\shaders\Shader3.frag" />
-    <None Include="..\..\HelloOpenGL\shaders\Shader3.vert" />
     <None Include="HelloOpenGL_TemporaryKey.pfx" />
-    <Image Include="..\..\HelloOpenGL\images\background.png" />
-    <Image Include="..\..\HelloOpenGL\images\bang.png" />
-    <Image Include="..\..\HelloOpenGL\images\btn.9.png" />
-    <Image Include="..\..\HelloOpenGL\images\btnPressed.9.png" />
-    <Image Include="..\..\HelloOpenGL\images\bullet.png" />
-    <Image Include="..\..\HelloOpenGL\images\enemy1.png" />
-    <Image Include="..\..\HelloOpenGL\images\enemy2.png" />
-    <Image Include="..\..\HelloOpenGL\images\enemy3.png" />
-    <Image Include="..\..\HelloOpenGL\images\explosion.png" />
-    <Image Include="..\..\HelloOpenGL\images\particle.png" />
-    <Image Include="..\..\HelloOpenGL\images\spaceshipspr.png" />
-    <Image Include="..\..\HelloOpenGL\images\star.png" />
-    <Image Include="..\..\HelloOpenGL\images\tom-thumb-white.png" />
     <Image Include="Assets\LockScreenLogo.scale-200.png" />
     <Image Include="Assets\SplashScreen.scale-200.png" />
     <Image Include="Assets\Square150x150Logo.scale-200.png" />
@@ -251,9 +240,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <AssetCatalogCompile Include="..\..\HelloOpenGL\Assets.xcassets" />
-    <ClInclude Include="..\..\HelloOpenGL\GameViewController.h" />
     <ClangCompile Include="..\..\HelloOpenGL\HelloOpenGL.m" />
-    <ClangCompile Include="..\..\HelloOpenGL\GameViewController.m" />
     <ClangCompile Include="..\..\HelloOpenGL\main.m" />
     <SBInfoPlistCopy Include="..\..\HelloOpenGL\Info.plist">
       <ExcludedFromBuild Condition="'$(Configuration)'=='Debug'">false</ExcludedFromBuild>

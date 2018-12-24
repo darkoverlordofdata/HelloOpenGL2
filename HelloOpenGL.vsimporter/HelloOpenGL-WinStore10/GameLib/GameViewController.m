@@ -96,7 +96,6 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
         glClearDepthf(1.0f);
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
-
     }
 }
 
@@ -114,8 +113,8 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	NSLog(@"Renderer       : %s", glGetString(GL_RENDERER));
 
 
-	self.Shader = [ResourceManager LoadShader : @"demo2d"];
-	self.Texture = [ResourceManager LoadTexture : @"background.png" alpha: false nameAs: @"block"];
+	self.Shader = [ResourceManager LoadShader : @"shaders/demo2d" nameAs: @"demo2d"];
+	self.Texture = [ResourceManager LoadTexture : @"images/background.png" alpha: false nameAs: @"background"];
 
     CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     self.OutputView = [[OpenGLView alloc] initWithFrame:frame];
@@ -124,7 +123,6 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	self.DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
 	self.view.backgroundColor = [UIColor blackColor];
 	[self.view addSubview:self.OutputView];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -139,8 +137,8 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 - (void)render {
     [EAGLContext setCurrentContext:self.Ctx];
 
-	glClearColor(0.372549, 0.623529, 0.623529, 1);
-	// glClearColor(1.0f, 0.0f, 0.0f, 1);
+	// glClearColor(0.372549, 0.623529, 0.623529, 1);
+	glClearColor(0.5f, 0.0f, 0.0f, 1);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

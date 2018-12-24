@@ -28,9 +28,9 @@ typedef struct {
 @property GLuint ProjectionAttrib;
 @property GLuint TranslateAttrib;
 
--(id)initWithShader: (Shader*)shader width: (int) w height: (int) h;
--(void)InitRenderData;
--(void)Draw;
+- (id)initWithShader: (Shader*)shader width: (int) w height: (int) h;
+- (void)InitRenderData;
+- (void)Draw;
 //-(void)Draw: (Texture2D*) texture : (Vec2)position : (Vec2)size : (GLfloat)rotate: (Vec3)color;
 
 @end

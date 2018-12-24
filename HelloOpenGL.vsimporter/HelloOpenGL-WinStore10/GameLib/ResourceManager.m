@@ -10,13 +10,13 @@
 static NSMutableDictionary* _Shaders = nil;
 static NSMutableDictionary* _Textures = nil;
 
-+(NSMutableDictionary*)Shaders { return _Shaders; }
-+(NSMutableDictionary*)Textures { return _Textures; }
++ (NSMutableDictionary*)Shaders { return _Shaders; }
++ (NSMutableDictionary*)Textures { return _Textures; }
 
 /**
  * static constructor
  */
-+(void)load {
++ (void)load {
 	_Shaders = [[NSMutableDictionary alloc] init];
 	_Textures = [[NSMutableDictionary alloc] init];
 }
@@ -29,7 +29,7 @@ static NSMutableDictionary* _Textures = nil;
  * @param name to cache as
  * @returns loaded, compiled and linked shader program
  */
-+(Shader*)LoadShader : (NSString*)vertex withFragment : (NSString*)fragment nameAs : (NSString*)name {
++ (Shader*)LoadShader : (NSString*)vertex withFragment : (NSString*)fragment nameAs : (NSString*)name {
 	Shader *shader = [ResourceManager loadShaderFromFile : vertex withFragment : fragment];
 	[ResourceManager.Shaders setObject : shader forKey : name];
 	NSLog(@"Added shader %@", name);
@@ -43,7 +43,7 @@ static NSMutableDictionary* _Textures = nil;
  * @param name to cache as
  * @returns loaded, compiled and linked shader program
  */
-+(Shader*)LoadShader : (NSString*)path nameAs : (NSString*)name {
++ (Shader*)LoadShader : (NSString*)path nameAs : (NSString*)name {
 	return [ResourceManager LoadShader : path withFragment : path nameAs : name];
 }
 
@@ -53,7 +53,7 @@ static NSMutableDictionary* _Textures = nil;
  * @param vertex path to vertex shader
  * @returns loaded, compiled and linked shader program
  */
-+(Shader*)LoadShader : (NSString*)path {
++ (Shader*)LoadShader : (NSString*)path {
 	return[ResourceManager LoadShader : path withFragment : path nameAs : path];
 }
 
@@ -64,7 +64,7 @@ static NSMutableDictionary* _Textures = nil;
  * @returns loaded, compiled and linked shader program
  *
  */
-+(Shader*)GetShader : (NSString*)name {
++ (Shader*)GetShader : (NSString*)name {
 	return[ResourceManager.Shaders objectForKey : name];
 }
 
@@ -77,7 +77,7 @@ static NSMutableDictionary* _Textures = nil;
  * @returns Texture
  *
  */
-+(Texture2D*)LoadTexture : (NSString*)path alpha : (BOOL)alpha nameAs : (NSString*)name {
++ (Texture2D*)LoadTexture : (NSString*)path alpha : (BOOL)alpha nameAs : (NSString*)name {
 	Texture2D *texture = [ResourceManager loadTextureFromFile : path alpha: alpha];
 	[ResourceManager.Textures setObject : texture forKey : name];
 	return texture;
@@ -90,7 +90,7 @@ static NSMutableDictionary* _Textures = nil;
  * @returns Texture
  *
  */
-+(Texture2D*)GetTexture : (NSString*)name {
++ (Texture2D*)GetTexture : (NSString*)name {
 	return[ResourceManager.Textures objectForKey : name];
 }
 
@@ -102,7 +102,7 @@ static NSMutableDictionary* _Textures = nil;
  * @returns loaded, compiled and linked shader program
  *
  */
-+(Shader*)loadShaderFromFile : (NSString*)vertSource withFragment : (NSString*)fragSource {
++ (Shader*)loadShaderFromFile : (NSString*)vertSource withFragment : (NSString*)fragSource {
 
 	NSString* vertPath = [[NSBundle mainBundle] pathForResource:vertSource
 		ofType : @"vert"];
@@ -128,7 +128,7 @@ static NSMutableDictionary* _Textures = nil;
  * @returns loaded, compiled and linked shader program
  *
  */
-+(Shader*)loadShaderFromFile : (NSString*)path {
++ (Shader*)loadShaderFromFile : (NSString*)path {
 	return [ResourceManager loadShaderFromFile : path withFragment : path];
 }
 
@@ -140,7 +140,7 @@ static NSMutableDictionary* _Textures = nil;
  * @returns Texture
  *
  */
-+(Texture2D*)loadTextureFromFile : (NSString*)path alpha : (BOOL)alpha {
++ (Texture2D*)loadTextureFromFile : (NSString*)path alpha : (BOOL)alpha {
 	// Create Texture object
 	int format = alpha ? GL_RGBA : GL_RGB;
 	int width, height, channels;
@@ -161,7 +161,7 @@ static NSMutableDictionary* _Textures = nil;
  * @returns Texture
  *
  */
-+(Texture2D*)loadTextureFromFile : (NSString*)path  {
++ (Texture2D*)loadTextureFromFile : (NSString*)path  {
 	return[ResourceManager loadTextureFromFile : path alpha : YES];
 }
 

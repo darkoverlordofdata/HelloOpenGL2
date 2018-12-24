@@ -20,7 +20,7 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
  * @param shader to use for rendering
  *
  */
--(id)initWithShader:(Shader*)shader  width : (int)w height : (int)h {
+- (id)initWithShader:(Shader*)shader  width : (int)w height : (int)h {
 
 	if (self = [super init]) {
 		_Shader = shader;
@@ -31,7 +31,7 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	return self;
 }
 
--(void)InitRenderData {
+- (void)InitRenderData {
 	static VertexData vertices[] = {
 		//	   X     Y     Z            U     V     
 		{ {  1.0f, 1.0f, 0.0f },	{ 1.0f, 1.0f } }, // vertex 0
@@ -91,8 +91,8 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
  * @param color to tint
  *
  */
-//-(void)Draw: (Texture2D*)texture : (Vec2)position : (Vec2)size : (GLfloat)rotate : (Vec3)color {
--(void)Draw {
+//- (void)Draw: (Texture2D*)texture : (Vec2)position : (Vec2)size : (GLfloat)rotate : (Vec3)color {
+- (void)Draw {
 	static uint8_t drawIndices[] = {
 		0, 1, 2, 2, 1, 3
 	};

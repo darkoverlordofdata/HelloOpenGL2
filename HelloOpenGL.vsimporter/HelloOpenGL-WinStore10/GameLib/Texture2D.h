@@ -24,11 +24,11 @@
 @property GLuint FilterMag;			// Filtering mode if texture pixels > screen pixels
 
 
--(Texture2D*)initWithPath:(NSString*)path format: (GLuint)format;
--(Texture2D*)initWithPath:(NSString*)path imageFormat : (GLuint)imageFormat internalFormat : (GLuint)internalFormat;
+- (Texture2D*)initWithPath:(NSString*)path format: (GLuint)format;
+- (Texture2D*)initWithPath:(NSString*)path imageFormat : (GLuint)imageFormat internalFormat : (GLuint)internalFormat;
 // Generates texture from image data
--(void)Generate: (GLuint)width : (GLuint)height : (char *) data;
+- (void)Generate: (GLuint)width : (GLuint)height : (char *) data;
 // Binds the texture as the current active GL_TEXTURE_2D texture object
--(void)Bind;
+- (void)Bind;
 
 @end

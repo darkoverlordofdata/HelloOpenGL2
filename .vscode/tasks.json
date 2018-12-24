@@ -14,8 +14,10 @@
             "group": "test",
             "problemMatcher": [
                 "$msCompile"
-            ]
-            
+            ],
+            "presentation": {
+                "reveal": "silent"
+            }
         },
         {
             "label": "deploy",
@@ -29,7 +31,10 @@
             "group": "build",
             "problemMatcher": [
                 "$msCompile"
-            ]
+            ],
+            "presentation": {
+                "reveal": "silent"
+            }
         },
         {
             "label": "clean",
@@ -39,7 +44,11 @@
                 "${workspaceFolder}/HelloOpenGL-WinStore10.sln",
                 "/clean"
             ],
-            "group": "build"
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": []
         },
         {
             "label": "build",
@@ -56,7 +65,7 @@
             "presentation": {
                 "reveal": "silent"
             },
-            "problemMatcher": "$msCompile",
+            "problemMatcher": "$msCompile"
         }
     ]
 }

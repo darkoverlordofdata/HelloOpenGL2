@@ -10,7 +10,7 @@
  * @param Format for binding the image
  *
  */
--(Texture2D*)initWithPath:(NSString*)path format: (GLuint)format {
+- (Texture2D*)initWithPath:(NSString*)path format: (GLuint)format {
 	return [self initWithPath:path imageFormat : format internalFormat : format];
 }
 
@@ -22,7 +22,7 @@
  * @param ImageFormat for binding the image
  *
  */
--(Texture2D*)initWithPath:(NSString*)path imageFormat : (GLuint)imageFormat internalFormat : (GLuint)internalFormat {
+- (Texture2D*)initWithPath:(NSString*)path imageFormat : (GLuint)imageFormat internalFormat : (GLuint)internalFormat {
 	self.Path = path;
 	self.Width = 0;
 	self.Height = 0;
@@ -44,7 +44,7 @@
  * @param data bitmap data
  *
  */
--(void)Generate: (GLuint)width : (GLuint)height : (char *)data {
+- (void)Generate: (GLuint)width : (GLuint)height : (char *)data {
 	self.Width = width;
 	self.Height = height;
 	// Create Texture
@@ -63,7 +63,7 @@
 /**
  * Bind the texture
  */
--(void)Bind {
+- (void)Bind {
 	glBindTexture(GL_TEXTURE_2D, self.Id);
 }
 

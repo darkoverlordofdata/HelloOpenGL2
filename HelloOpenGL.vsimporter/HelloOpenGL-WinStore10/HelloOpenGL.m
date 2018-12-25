@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 #import "GameViewController.h"
+#import "Log.h"
 
-@interface HelloOpenGLApp : NSObject {
-    UIWindow* _mainWindow;
-}
+@interface HelloOpenGLApp : NSObject
+@property (nonatomic) UIWindow* mainWindow;
 @end
 
 @implementation HelloOpenGLApp

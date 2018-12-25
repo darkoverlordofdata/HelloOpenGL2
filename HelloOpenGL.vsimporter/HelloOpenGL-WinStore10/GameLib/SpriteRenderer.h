@@ -5,6 +5,7 @@
 #import "tglm/tglm.h"
 #import "Shader.h"
 #import "Texture2D.h"
+#import "Log.h"
 
 
 // based on https://learnopengl.com/Getting-started/Transformations

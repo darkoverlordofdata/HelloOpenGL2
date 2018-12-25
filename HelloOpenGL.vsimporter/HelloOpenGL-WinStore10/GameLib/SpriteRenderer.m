@@ -12,6 +12,10 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	glUniformMatrix4fv(attrib, 1, 0, (const GLfloat*)&mat);
 }
 
+/**
+ * SpriteRenderer class
+ *
+ */
 @implementation SpriteRenderer;
 
 /**
@@ -52,7 +56,6 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 		{ {  1.0f, -1.0f, 0.0f },	{ 1.0f, 0.0f, 0.0f, 1.0f } },
 		{ { -1.0f, -1.0f, 0.0f },	{ 1.0f, 0.0f, 1.0f, 1.0f } }
 	};
-
 
 	self.PositionAttrib = [self.Shader GetAttrib : @"_position"];
 	self.ColorAttrib = [self.Shader GetAttrib : @"_color"];

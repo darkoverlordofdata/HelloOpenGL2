@@ -5,9 +5,12 @@
 #import "stb/stb_image.h"
 #import "Shader.h"
 #import "Texture2D.h"
+#import "Log.h"
 /**
+ * ResourceManager
  */
 @interface ResourceManager : NSObject
+
 @property (class, nonatomic) NSMutableDictionary*  Shaders;
 @property (class, nonatomic) NSMutableDictionary*  Textures;
 

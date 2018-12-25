@@ -13,12 +13,12 @@
 // THE SOFTWARE.
 //
 //******************************************************************************
+#import "GameViewController.h"
 
 //UIKeyInputEscape
 //https://nshipster.com/uikeycommand/
 //addKeyCommand:' is deprecated: method not yet implemented [-Wdeprecated-declarations]
 
-#import "GameViewController.h"
 
 
 static Vertex Vertices[] = {
@@ -31,7 +31,6 @@ static Vertex Vertices[] = {
 static uint8_t drawIndices[] = {
 	0, 1, 2, 2, 1, 3
 };
-
 
 @implementation OpenGLView
 + (Class)layerClass {
@@ -46,6 +45,10 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	glUniformMatrix4fv(attrib, 1, 0, (const GLfloat*)&mat);
 }
 
+/**
+ * GameViewController class
+ *
+ */
 @implementation GameViewController;
 
 	// should delegate to Game::Resized
@@ -113,6 +116,7 @@ static void glPerspective(GLfloat fov, GLfloat aspect, GLfloat znear, GLfloat zf
 	NSLog(@"Renderer       : %s", glGetString(GL_RENDERER));
 
 
+	self.Shader = [ResourceManager LoadShader : @"shaders/test" nameAs: @"test"];
 	self.Shader = [ResourceManager LoadShader : @"shaders/demo2d" nameAs: @"demo2d"];
 	self.Texture = [ResourceManager LoadTexture : @"images/background.png" alpha: false nameAs: @"background"];
 

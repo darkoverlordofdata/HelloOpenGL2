@@ -182,11 +182,15 @@
     <ClangCompile Include="GameLib\SpriteRenderer.m" />
     <ClangCompile Include="GameLib\stb.c" />
     <ClangCompile Include="GameLib\Texture2D.m" />
+    <ClangCompile Include="HelloOpenGL.m" />
+    <ClangCompile Include="Log.m" />
+    <ClangCompile Include="main.m" />
     <ClInclude Include="GameLib\GameViewController.h" />
     <ClInclude Include="GameLib\ResourceManager.h" />
     <ClInclude Include="GameLib\Shader.h" />
     <ClInclude Include="GameLib\SpriteRenderer.h" />
     <ClInclude Include="GameLib\Texture2D.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="tglm\tglm.h" />
     <Image Include="images\background.png" />
     <Image Include="images\bang.png" />
@@ -201,6 +205,16 @@
     <Image Include="images\spaceshipspr.png" />
     <Image Include="images\star.png" />
     <Image Include="images\tom-thumb-white.png" />
+    <Text Include="shaders\test.frag">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+    </Text>
+    <Text Include="shaders\test.vert">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+    </Text>
     <Text Include="shaders\demo2d.frag">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <FileType>Document</FileType>
@@ -240,8 +254,6 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <AssetCatalogCompile Include="..\..\HelloOpenGL\Assets.xcassets" />
-    <ClangCompile Include="..\..\HelloOpenGL\HelloOpenGL.m" />
-    <ClangCompile Include="..\..\HelloOpenGL\main.m" />
     <SBInfoPlistCopy Include="..\..\HelloOpenGL\Info.plist">
       <ExcludedFromBuild Condition="'$(Configuration)'=='Debug'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)'=='Release'">false</ExcludedFromBuild>

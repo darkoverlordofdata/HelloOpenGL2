@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:/Users/darko/Documents/GitHub/WinObjC/include",
+                "C:/Users/darko/Documents/GitHub/WinObjC/samples/HelloOpenGL2/HelloOpenGL.vsimporter/HelloOpenGL-WinStore10",
+                "C:/Users/darko/Documents/GitHub/WinObjC/samples/HelloOpenGL2/HelloOpenGL.vsimporter/HelloOpenGL-WinStore10/GameLib"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.17763.0",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c99",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

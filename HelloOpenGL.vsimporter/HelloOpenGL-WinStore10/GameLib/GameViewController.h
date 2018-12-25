@@ -13,7 +13,7 @@
 // THE SOFTWARE.
 //
 //******************************************************************************
-
+#pragma once
 #import <UIKit/UIKit.h>
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
@@ -22,6 +22,7 @@
 #import "ResourceManager.h"
 #import "SpriteRenderer.h"
 #import "Shader.h"
+#import "Log.h"
 
 typedef struct {
 	float position[3];
@@ -32,6 +33,9 @@ typedef struct {
 + (Class)layerClass;
 @end
 
+/**
+ * GameViewController
+ */
 @interface GameViewController : UIViewController
 
 @property (nonatomic) EAGLContext* Ctx;
@@ -49,3 +53,5 @@ typedef struct {
 @property GLuint ColorBuffer;
 
 @end
+
+

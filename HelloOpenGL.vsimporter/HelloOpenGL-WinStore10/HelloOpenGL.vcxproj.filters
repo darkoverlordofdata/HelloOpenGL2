@@ -60,12 +60,6 @@
     <AssetCatalogCompile Include="..\..\HelloOpenGL\Assets.xcassets">
       <Filter>HelloOpenGL</Filter>
     </AssetCatalogCompile>
-    <ClangCompile Include="..\..\HelloOpenGL\HelloOpenGL.m">
-      <Filter>HelloOpenGL</Filter>
-    </ClangCompile>
-    <ClangCompile Include="..\..\HelloOpenGL\main.m">
-      <Filter>HelloOpenGL</Filter>
-    </ClangCompile>
     <SBInfoPlistCopy Include="..\..\HelloOpenGL\Info.plist" />
     <Text Include="HelloOpenGL-Debug-xcvars.txt">
       <Filter>Xcode Variable Files</Filter>
@@ -102,6 +96,9 @@
     <ClInclude Include="GameLib\GameViewController.h">
       <Filter>GameLib\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>HelloOpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClangCompile Include="GameLib\ResourceManager.m">
@@ -122,6 +119,13 @@
     <ClangCompile Include="GameLib\stb.c">
       <Filter>GameLib</Filter>
     </ClangCompile>
+    <ClangCompile Include="HelloOpenGL.m">
+      <Filter>HelloOpenGL</Filter>
+    </ClangCompile>
+    <ClangCompile Include="main.m">
+      <Filter>HelloOpenGL</Filter>
+    </ClangCompile>
+    <ClangCompile Include="Log.m" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\background.png">
@@ -201,6 +205,12 @@
       <Filter>Resources\shaders</Filter>
     </Text>
     <Text Include="shaders\demo2d.vert">
+      <Filter>Resources\shaders</Filter>
+    </Text>
+    <Text Include="shaders\test.frag">
+      <Filter>Resources\shaders</Filter>
+    </Text>
+    <Text Include="shaders\test.vert">
       <Filter>Resources\shaders</Filter>
     </Text>
   </ItemGroup>

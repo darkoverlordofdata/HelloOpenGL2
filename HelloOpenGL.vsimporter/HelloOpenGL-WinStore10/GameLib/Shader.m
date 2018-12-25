@@ -1,5 +1,4 @@
-	#import "Shader.h"
-
+#import "Shader.h"
 /**
  *	Shader class
  */
@@ -35,7 +34,6 @@
 - (GLint)GetUniform : (NSString*)name {
 	return glGetUniformLocation(self.Id, [name UTF8String]);
 }
-
 
 /**
  * Compile

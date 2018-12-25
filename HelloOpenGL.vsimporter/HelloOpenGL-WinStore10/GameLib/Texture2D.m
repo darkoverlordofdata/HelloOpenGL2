@@ -1,7 +1,9 @@
 #import "Texture2D.h"
-
+/**
+ * Texture2D class
+ *
+ */
 @implementation Texture2D;
-
 
 /**
  * Texture2D
@@ -57,7 +59,6 @@
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, self.FilterMag);
 	// Unbind texture
 	glBindTexture(GL_TEXTURE_2D, 0);
-
 }
 
 /**

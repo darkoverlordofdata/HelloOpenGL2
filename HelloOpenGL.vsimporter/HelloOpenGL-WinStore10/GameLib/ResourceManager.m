@@ -1,12 +1,10 @@
 #import "ResourceManager.h"
-
-@implementation ResourceManager;
-
 /**
- * ResourceManager
- *
+ * ResourceManager class
  *
  */
+@implementation ResourceManager;
+
 static NSMutableDictionary* _Shaders = nil;
 static NSMutableDictionary* _Textures = nil;
 

@@ -3,6 +3,8 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "stb/stb_image.h"
+#import "Log.h"
+
 /**
  * Texture2D is able to store and configure a texture in OpenGL.
  * It also hosts utility functions for easy management.
